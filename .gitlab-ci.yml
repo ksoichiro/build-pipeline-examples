@@ -1,0 +1,12 @@
+image: node:8.15.0-alpine
+
+stage:
+  - build
+
+build_script:
+  - npm install
+
+build:
+  stage: build
+
+  script: npm test
