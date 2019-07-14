@@ -4,7 +4,7 @@ stages:
 
 danger:
   stage: lint
-  image: ruby/2.6.3-alpine3.10
+  image: ruby:2.6.3-alpine3.10
   only:
     variables:
       - $DANGER_GITLAB_API_TOKEN
