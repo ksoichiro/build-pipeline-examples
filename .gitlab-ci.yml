@@ -1,12 +1,22 @@
-image: node:8.15.0-alpine
-
 stages:
+  - lint
   - build
 
-before_script:
-  - npm install
+danger:
+  stage: lint
+  image: ruby/2.6.3-alpine3.10
+  only:
+    variables:
+      - $DANGER_GITLAB_API_TOKEN
+  before_script:
+    - gem install danger-gitlab
+    - danger --version
+  script:
+    - danger --fail-on-errors=true
 
 build:
   stage: build
-
+  image: node:8.15.0-alpine
+  before_script:
+    - npm install
   script: npm test
