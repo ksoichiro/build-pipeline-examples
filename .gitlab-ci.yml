@@ -1,9 +1,9 @@
 image: node:8.15.0-alpine
 
-stage:
+stages:
   - build
 
-build_script:
+before_script:
   - npm install
 
 build:
