@@ -9,6 +9,7 @@ danger:
     variables:
       - $DANGER_GITLAB_API_TOKEN
   before_script:
+    - apt-get update > /dev/null 2>&1; apt-get install -y --no-install-recommends git > /dev/null 2>&1
     - gem install danger-gitlab
     - danger --version
   script:
